@@ -35,7 +35,7 @@ export const exampleRouter = createTRPCRouter({
         .split("." + env.APPWRITE_HOSTNAME)
         .join(newHostname);
       ctx.res.setHeader("set-cookie", cookie);
-      console.log(cookie, "===========cooookie from trpc");
+
       return response;
     }),
   getAccount: publicProcedure.query(async ({ ctx }) => {
@@ -56,8 +56,8 @@ export const exampleRouter = createTRPCRouter({
     } catch (err) {
       throw new TRPCError({
         code: "UNAUTHORIZED",
-        message: '',
-        cause:err
+        message: "",
+        cause: err,
       });
     }
   }),

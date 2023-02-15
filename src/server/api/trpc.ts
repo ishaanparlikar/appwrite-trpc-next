@@ -57,7 +57,6 @@ export const createTRPCContext = (_opts: CreateNextContextOptions) => {
 import { initTRPC, TRPCError } from "@trpc/server";
 import superjson from "superjson";
 import { AppwriteService } from "../../utils/appwriteConfig";
-import { unknown } from "zod";
 
 const t = initTRPC.context<typeof createTRPCContext>().create({
   transformer: superjson,
@@ -69,7 +68,7 @@ const t = initTRPC.context<typeof createTRPCContext>().create({
 export const isAuth = t.middleware(async ({ ctx, next }) => {
   const { req, res } = ctx;
 
-  //Checking if cookies are set
+  // Checking if cookies are set
   let loggedIn = false;
   let error = {};
   let account;
