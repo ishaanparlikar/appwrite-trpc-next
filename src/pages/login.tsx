@@ -40,6 +40,8 @@ const Login = () => {
   return (
     <form
       className="form u-width-full-line u-max-width-500 u-margin-inline-auto"
+      method="POST"
+      action="/api/login"
       onSubmit={handleSubmit}
     >
       <ul className="form-list">

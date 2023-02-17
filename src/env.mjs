@@ -75,9 +75,9 @@ if (!!process.env.SKIP_ENV_VALIDATION == false) {
             ? "❌ Attempted to access a server-side environment variable on the client"
             : `❌ Attempted to access server-side environment variable '${prop}' on the client`
         );
-        if(process.env.NODE_ENV=='production' && process.env.APP_HOSTNAME=='localhost'){
-          throw new Error("Please provide production app url")
-        }
+      if (process.env.NODE_ENV == "production" && !process.env.APP_HOSTNAME) {
+        throw new Error("Please provide production app url");
+      }
       /*  @ts-ignore - can't type this properly in jsdoc */
       return target[prop];
     },

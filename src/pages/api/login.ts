@@ -13,6 +13,11 @@ export default async function handler(
     res,
   });
 
-  await caller.appwrite.logoutUser();
+  try {
+    await caller.appwrite.login(req.body);
+  } catch {
+    // Handle errors
+  }
+
   res.redirect("/");
 }
