@@ -9,6 +9,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@appwrite.io/pink": "^0.0.5",
     "@tanstack/react-query": "^4.20.0",
     "@trpc/client": "^10.9.0",
     "@trpc/next": "^10.9.0",
